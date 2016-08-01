@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-
+using System.Data.Entity.ModelConfiguration.Conventions;
 namespace HotelPuraVida.Models
 {
     public class HotelPuraVidaContext : DbContext
@@ -17,6 +17,10 @@ namespace HotelPuraVida.Models
      
         public HotelPuraVidaContext() : base("name=HotelPuraVidaContext")
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
         public System.Data.Entity.DbSet<HotelPuraVida.Models.HotelModels> HotelModels { get; set; }

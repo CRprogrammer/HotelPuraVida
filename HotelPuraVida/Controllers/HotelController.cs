@@ -111,7 +111,15 @@ namespace HotelPuraVida.Controllers
         {
             HotelModels hotelModels = db.HotelModels.Find(id);
             db.HotelModels.Remove(hotelModels);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+           
             return RedirectToAction("Index");
         }
 
