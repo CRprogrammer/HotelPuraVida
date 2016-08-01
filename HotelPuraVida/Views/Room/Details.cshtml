@@ -1,0 +1,50 @@
+﻿@model HotelPuraVida.Models.RoomModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RoomModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxPeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxPeople)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

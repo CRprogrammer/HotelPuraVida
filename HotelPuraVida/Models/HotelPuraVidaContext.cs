@@ -20,6 +20,9 @@ namespace HotelPuraVida.Models
         }
 
         public System.Data.Entity.DbSet<HotelPuraVida.Models.HotelModels> HotelModels { get; set; }
-    
+
+        public System.Data.Entity.DbSet<HotelPuraVida.Models.ReservationModel> ReservationModels { get; set; }
+
+        public System.Data.Entity.DbSet<HotelPuraVida.Models.RoomModel> RoomModels { get; set; }
     }
 }
