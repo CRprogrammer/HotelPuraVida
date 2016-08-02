@@ -250,19 +250,11 @@
     <Content Include="Views\Hotel\Details.cshtml" />
     <Content Include="Views\Hotel\Edit.cshtml" />
     <Content Include="Views\Hotel\Index.cshtml" />
-    <Content Include="Views\Reservation\Create.cshtml" />
-    <Content Include="Views\Reservation\Delete.cshtml" />
-    <Content Include="Views\Reservation\Details.cshtml" />
-    <Content Include="Views\Reservation\Edit.cshtml" />
-    <Content Include="Views\Reservation\Index.cshtml" />
-    <Content Include="Views\Room\Create.cshtml" />
-    <Content Include="Views\Room\Delete.cshtml" />
-    <Content Include="Views\Room\Details.cshtml" />
-    <Content Include="Views\Room\Edit.cshtml" />
-    <Content Include="Views\Room\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reservation\" />
+    <Folder Include="Views\Room\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -17,7 +17,8 @@ namespace HotelPuraVida.Controllers
         // GET: Room
         public ActionResult Index()
         {
-            return View(db.RoomModels.ToList());
+            var roomModels = db.RoomModels.Include(r => r.HotelModels);
+            return View(roomModels.ToList());
         }
 
         // GET: Room/Details/5
@@ -38,6 +39,7 @@ namespace HotelPuraVida.Controllers
         // GET: Room/Create
         public ActionResult Create()
         {
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace HotelPuraVida.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RoomID,RoomName,AvailableDays,MaxPeople,HotelID")] RoomModel roomModel)
+        public ActionResult Create([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight")] RoomModel roomModel)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace HotelPuraVida.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
             return View(roomModel);
         }
 
@@ -70,6 +73,7 @@ namespace HotelPuraVida.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
             return View(roomModel);
         }
 
@@ -78,7 +82,7 @@ namespace HotelPuraVida.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RoomID,RoomName,AvailableDays,MaxPeople,HotelID")] RoomModel roomModel)
+        public ActionResult Edit([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight")] RoomModel roomModel)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace HotelPuraVida.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
             return View(roomModel);
         }
 

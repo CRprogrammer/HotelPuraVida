@@ -24,7 +24,7 @@ namespace HotelPuraVida.Models
         [Display(Name="Estrellas")]
         [Required(ErrorMessage = "You must enter {0}")]
         public int Rating { get; set; }
-       
 
+        public virtual ICollection<RoomModel> RoomModel { get; set; }
     }
 }
