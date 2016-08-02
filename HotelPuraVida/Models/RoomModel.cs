@@ -33,7 +33,6 @@ namespace HotelPuraVida.Models
 
         [Display(Name = "Costo por noche")]
         [Required(ErrorMessage = "You must enter a valid {0}")]
-
         public decimal CostPerNight { get; set; }
 
         public virtual HotelModels HotelModels { get; set; }
