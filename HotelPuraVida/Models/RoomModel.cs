@@ -28,7 +28,6 @@ namespace HotelPuraVida.Models
         public int MaxPeople { get; set; }
 
         [Display(Name = "Hotel")]
-        [Required(ErrorMessage = "You must enter a valid {0}")]
         public int HotelID { get; set; }
 
         [Display(Name = "Costo por noche")]
@@ -37,5 +36,6 @@ namespace HotelPuraVida.Models
         public decimal CostPerNight { get; set; }
 
         public virtual HotelModels HotelModels { get; set; }
+        public virtual ICollection<ReservationModel> ReservationModel { get; set; }
     }
 }

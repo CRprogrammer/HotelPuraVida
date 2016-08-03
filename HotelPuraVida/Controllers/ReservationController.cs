@@ -17,7 +17,8 @@ namespace HotelPuraVida.Controllers
         // GET: Reservation
         public ActionResult Index()
         {
-            return View(db.ReservationModels.ToList());
+            var reservationModels = db.ReservationModels.Include(r => r.HotelModels).Include(r => r.RoomModel);
+            return View(reservationModels.ToList());
         }
 
         // GET: Reservation/Details/5
@@ -38,6 +39,8 @@ namespace HotelPuraVida.Controllers
         // GET: Reservation/Create
         public ActionResult Create()
         {
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name");
+            ViewBag.RoomID = new SelectList(db.RoomModels, "RoomID", "RoomType");
             return View();
         }
 
@@ -55,6 +58,8 @@ namespace HotelPuraVida.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", reservationModel.HotelID);
+            ViewBag.RoomID = new SelectList(db.RoomModels, "RoomID", "RoomType", reservationModel.RoomID);
             return View(reservationModel);
         }
 
@@ -70,6 +75,8 @@ namespace HotelPuraVida.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", reservationModel.HotelID);
+            ViewBag.RoomID = new SelectList(db.RoomModels, "RoomID", "RoomType", reservationModel.RoomID);
             return View(reservationModel);
         }
 
@@ -86,6 +93,8 @@ namespace HotelPuraVida.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", reservationModel.HotelID);
+            ViewBag.RoomID = new SelectList(db.RoomModels, "RoomID", "RoomType", reservationModel.RoomID);
             return View(reservationModel);
         }
 

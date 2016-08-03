@@ -12,12 +12,14 @@ namespace HotelPuraVida.Models
         public int ReservationID { get; set; }
 
         [Display(Name = "Cliente")]
-        [Required(ErrorMessage = "You must enter a valid {0}")]
         public string Username { get; set; }
         public int People { get; set; }
         public DateTime Date { get; set; }
         public int HotelID { get; set; }
         public int RoomID { get; set; }
         public int LoginID { get; set; }
+
+        public virtual RoomModel RoomModel { get; set; }
+        public virtual HotelModels HotelModels { get; set; }
     }
 }
