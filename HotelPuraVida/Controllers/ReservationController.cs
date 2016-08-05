@@ -10,6 +10,7 @@ using HotelPuraVida.Models;
 
 namespace HotelPuraVida.Controllers
 {
+    [Authorize]
     public class ReservationController : Controller
     {
         private HotelPuraVidaContext db = new HotelPuraVidaContext();
