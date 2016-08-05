@@ -40,9 +40,6 @@ namespace HotelPuraVida.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var userManarge = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-            
-
-            
             var users = userManarge.Users.ToList();
             var user = users.Find(u => u.Id == userID);
 
@@ -79,6 +76,7 @@ namespace HotelPuraVida.Controllers
             return View(userView);
 
         }
+        //GET
         public ActionResult AddRole(string userID)
         {
             if (string.IsNullOrEmpty(userID))
@@ -114,13 +112,14 @@ namespace HotelPuraVida.Controllers
         [HttpPost]
         public ActionResult AddRole(string userID, FormCollection form)
         {
+            var roleID = Request["RoleID"];
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var userManarge = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
             var users = userManarge.Users.ToList();
             var user = users.Find(u => u.Id == userID);
 
-                 var roleID = Request["RoleID"];
+              
             var userView = new UserViewModels
             {
                 EMail = user.Email,
@@ -171,6 +170,52 @@ namespace HotelPuraVida.Controllers
                 Roles = rolesView
             };
             return View("Roles", userView);
+        }
+        public ActionResult Delete(string userID, string roleID)
+        {
+            if (string.IsNullOrEmpty(userID) || string.IsNullOrEmpty(roleID))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+            var userManarge = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var user = userManarge.Users.ToList().Find(u => u.Id == userID);
+            var role = roleManager.Roles.ToList().Find(r => r.Id == roleID);
+            ///Delete
+            if (userManarge.IsInRole(user.Id, role.Name))
+            {
+                userManarge.RemoveFromRole(user.Id,role.Name);
+            }
+            //View
+            var users = userManarge.Users.ToList();
+            var roles = roleManager.Roles.ToList();
+            var rolesView = new List<RoleViewModels>();
+
+
+            foreach (var item in user.Roles)
+            {
+                role = roles.Find(r => r.Id == item.RoleId);
+
+
+                var roleView = new RoleViewModels
+                {
+                    RoleID = role.Id,
+                    Name = role.Name
+                };
+                rolesView.Add(roleView);
+            }
+
+            var userView = new UserViewModels
+            {
+                EMail = user.Email,
+                Name = user.UserName,
+                UserID = user.Id,
+                Roles = rolesView
+            };
+            return View("Roles", userView);
+
+
+
         }
         protected override void Dispose(bool disposing)
         {
