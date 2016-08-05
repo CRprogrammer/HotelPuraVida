@@ -185,6 +185,7 @@
     <Compile Include="Models\HotelPuraVidaContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MenuSecurity.cs" />
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +194,35 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\attended.png" />
+    <Content Include="Content\img\canopy_opt.png" />
+    <Content Include="Content\img\conrad_opt.png" />
+    <Content Include="Content\img\GuestHome.png" />
+    <Content Include="Content\img\Hilton.png" />
+    <Content Include="Content\img\HotelsBanner.png" />
+    <Content Include="Content\img\Hotels\Canopy.png" />
+    <Content Include="Content\img\Hotels\Conrad.png" />
+    <Content Include="Content\img\Hotels\Curio.png" />
+    <Content Include="Content\img\Hotels\DoubleTree.png" />
+    <Content Include="Content\img\Hotels\Embassy.png" />
+    <Content Include="Content\img\Hotels\GardenInn.png" />
+    <Content Include="Content\img\Hotels\GrandVacations.png" />
+    <Content Include="Content\img\Hotels\Hampton.png" />
+    <Content Include="Content\img\Hotels\HHonors.png" />
+    <Content Include="Content\img\Hotels\Hilton.png" />
+    <Content Include="Content\img\Hotels\Home2.png" />
+    <Content Include="Content\img\Hotels\Homewood.png" />
+    <Content Include="Content\img\Hotels\Tru.png" />
+    <Content Include="Content\img\Hotels\Waldorf.png" />
+    <Content Include="Content\img\LeftLogo.png" />
+    <Content Include="Content\img\Logo.png" />
+    <Content Include="Content\img\Socials\fb2.png" />
+    <Content Include="Content\img\Socials\gp.png" />
+    <Content Include="Content\img\Socials\linkein.png" />
+    <Content Include="Content\img\Socials\pinterest.png" />
+    <Content Include="Content\img\Socials\skype.png" />
+    <Content Include="Content\img\Socials\twitter2.png" />
+    <Content Include="Content\img\Socials\yt.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -253,11 +283,19 @@
     <Content Include="Views\Hotel\Index.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Welcome\Details.cshtml" />
+    <Content Include="Views\Reservation\Create.cshtml" />
+    <Content Include="Views\Reservation\Delete.cshtml" />
+    <Content Include="Views\Reservation\Details.cshtml" />
+    <Content Include="Views\Reservation\Edit.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Reservation\" />
-    <Folder Include="Views\Room\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
