@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   
 </p>
 <table class="table">
     <tr>
@@ -38,7 +38,7 @@
         <td>
             
             @Html.ActionLink("Details", "Details", new { id=item.HotelID }) |
-            @Html.ActionLink("Reservación", "Reservation")
+            @Html.ActionLink("Reservación", "Index", "Reservation")
         </td>
     </tr>
 }

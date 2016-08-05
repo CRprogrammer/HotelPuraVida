@@ -10,16 +10,18 @@ using HotelPuraVida.Models;
 
 namespace HotelPuraVida.Controllers
 {
+    
     public class HotelController : Controller
     {
         private HotelPuraVidaContext db = new HotelPuraVidaContext();
 
+        [Authorize (Roles="View")]
         // GET: Hotel
         public ActionResult Index()
         {
             return View(db.HotelModels.ToList());
         }
-
+         [Authorize(Roles = "Detail")]
         // GET: Hotel/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +37,7 @@ namespace HotelPuraVida.Controllers
             return View(hotelModels);
         }
 
+         [Authorize(Roles = "Create")]
         // GET: Hotel/Create
         public ActionResult Create()
         {
@@ -57,7 +60,7 @@ namespace HotelPuraVida.Controllers
 
             return View(hotelModels);
         }
-
+         [Authorize(Roles = "Edit")]
         // GET: Hotel/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +91,7 @@ namespace HotelPuraVida.Controllers
             }
             return View(hotelModels);
         }
-
+         [Authorize(Roles = "Delete")]
         // GET: Hotel/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -117,6 +120,7 @@ namespace HotelPuraVida.Controllers
             }
             catch (Exception ex)
             {
+                ViewBag.Error = "No existe!!!";
                 throw;
             }
            

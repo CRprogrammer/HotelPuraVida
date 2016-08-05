@@ -54,9 +54,9 @@ namespace HotelPuraVida
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+              app.UseFacebookAuthentication(
+               appId: "152989701800289",
+               appSecret: "293e9fdf2851762c4a95a7dbdf268412");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
