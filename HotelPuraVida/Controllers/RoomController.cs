@@ -10,7 +10,7 @@ using HotelPuraVida.Models;
 
 namespace HotelPuraVida.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RoomController : Controller
     {
         private HotelPuraVidaContext db = new HotelPuraVidaContext();
@@ -44,9 +44,7 @@ namespace HotelPuraVida.Controllers
             return View();
         }
 
-        // POST: Room/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Room/Create        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight")] RoomModel roomModel)

@@ -14,7 +14,7 @@ namespace HotelPuraVida.Controllers
 
     public class UsersController : Controller
     {
-       private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Users
         public ActionResult Index()
         {
@@ -25,9 +25,9 @@ namespace HotelPuraVida.Controllers
             {
                 var userView = new UserViewModels
                 {
-                 EMail=user.Email,
-                 Name=user.UserName,
-                 UserID=user.Id
+                    EMail = user.Email,
+                    Name = user.UserName,
+                    UserID = user.Id
                 };
                 usersView.Add(userView);
             }
@@ -43,35 +43,35 @@ namespace HotelPuraVida.Controllers
             var users = userManarge.Users.ToList();
             var user = users.Find(u => u.Id == userID);
 
-            if(user==null)
+            if (user == null)
             {
                 return HttpNotFound();
             }
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var roles = roleManager.Roles.ToList();
-            var rolesView=new List<RoleViewModels>();
-           
+            var rolesView = new List<RoleViewModels>();
 
-                foreach (var item in user.Roles)
+
+            foreach (var item in user.Roles)
+            {
+                var role = roles.Find(r => r.Id == item.RoleId);
+
+
+                var roleView = new RoleViewModels
                 {
-                    var role = roles.Find(r => r.Id == item.RoleId);
+                    RoleID = role.Id,
+                    Name = role.Name
+                };
+                rolesView.Add(roleView);
+            }
 
-
-                    var roleView = new RoleViewModels
-                    {
-                        RoleID = role.Id,
-                        Name = role.Name
-                    };
-                    rolesView.Add(roleView);
-                }
-            
-            var userView= new UserViewModels
+            var userView = new UserViewModels
             {
                 EMail = user.Email,
                 Name = user.UserName,
                 UserID = user.Id,
-                Roles= rolesView
+                Roles = rolesView
             };
             return View(userView);
 
@@ -99,14 +99,14 @@ namespace HotelPuraVida.Controllers
                 EMail = user.Email,
                 Name = user.UserName,
                 UserID = user.Id
-               
+
             };
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var list = roleManager.Roles.ToList();
             list.Add(new IdentityRole { Id = "", Name = "[Seleccione]" });
             list = list.OrderBy(r => r.Name).ToList();
             ViewBag.RoleID = new SelectList(list, "Id", "Name");
-           
+
             return View(userView);
         }
         [HttpPost]
@@ -119,7 +119,7 @@ namespace HotelPuraVida.Controllers
             var users = userManarge.Users.ToList();
             var user = users.Find(u => u.Id == userID);
 
-              
+
             var userView = new UserViewModels
             {
                 EMail = user.Email,
@@ -128,20 +128,20 @@ namespace HotelPuraVida.Controllers
 
             };
 
-       
-        if(string.IsNullOrEmpty(roleID))
-        {
-            ViewBag.Error = "You must select a role";
-            var list = roleManager.Roles.ToList();
-            list.Add(new IdentityRole { Id = "", Name = "[Seleccione]" });
-            list = list.OrderBy(r => r.Name).ToList();
-            ViewBag.RoleID = new SelectList(list, "Id", "Name");
-            return View(userView);
-        }
 
-              var roles = roleManager.Roles.ToList();
-             var role = roles.Find(r => r.Id == roleID);
-            if(!userManarge.IsInRole(userID, role.Name))
+            if (string.IsNullOrEmpty(roleID))
+            {
+                ViewBag.Error = "You must select a role";
+                var list = roleManager.Roles.ToList();
+                list.Add(new IdentityRole { Id = "", Name = "[Seleccione]" });
+                list = list.OrderBy(r => r.Name).ToList();
+                ViewBag.RoleID = new SelectList(list, "Id", "Name");
+                return View(userView);
+            }
+
+            var roles = roleManager.Roles.ToList();
+            var role = roles.Find(r => r.Id == roleID);
+            if (!userManarge.IsInRole(userID, role.Name))
             {
                 userManarge.AddToRole(userID, role.Name);
             }
@@ -162,7 +162,7 @@ namespace HotelPuraVida.Controllers
                 rolesView.Add(roleView);
             }
 
-             userView = new UserViewModels
+            userView = new UserViewModels
             {
                 EMail = user.Email,
                 Name = user.UserName,
@@ -184,7 +184,7 @@ namespace HotelPuraVida.Controllers
             ///Delete
             if (userManarge.IsInRole(user.Id, role.Name))
             {
-                userManarge.RemoveFromRole(user.Id,role.Name);
+                userManarge.RemoveFromRole(user.Id, role.Name);
             }
             //View
             var users = userManarge.Users.ToList();
