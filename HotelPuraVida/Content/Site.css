@@ -23,10 +23,170 @@ textarea {
     max-width: 280px;
 }
 
-#NwBar{
-    background-color:white;
+#NwBar {
+    background-color: white;
 }
 
-#NwBar a{
-    color:#6666ff;
+    #NwBar a {
+        color: #6666ff;
+    }
+
+/* jssor slider arrow navigator skin 01 css */
+/*
+        .jssora01l                  (normal)
+        .jssora01r                  (normal)
+        .jssora01l:hover            (normal mouseover)
+        .jssora01r:hover            (normal mouseover)
+        .jssora01l.jssora01ldn      (mousedown)
+        .jssora01r.jssora01rdn      (mousedown)
+        */
+.jssora01l, .jssora01r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    background: url('img/a01.png') no-repeat;
+    overflow: hidden;
+}
+
+.jssora01l {
+    background-position: -8px -38px;
+}
+
+.jssora01r {
+    background-position: -68px -38px;
+}
+
+.jssora01l:hover {
+    background-position: -128px -38px;
+}
+
+.jssora01r:hover {
+    background-position: -188px -38px;
+}
+
+.jssora01l.jssora01ldn {
+    background-position: -8px -38px;
+}
+
+.jssora01r.jssora01rdn {
+    background-position: -68px -38px;
+}
+/* jssor slider thumbnail navigator skin 04 css */ /*.jssort04 .p            (normal).jssort04 .p:hover      (normal mouseover).jssort04 .pav          (active).jssort04 .pav:hover    (active mouseover).jssort04 .pdn          (mousedown)*/
+
+.jssort04 .p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 62px;
+    height: 32px;
+}
+
+.jssort04 .t {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.jssort04 .w, .jssort04 .pav:hover .w {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    border: #0099FF 1px solid;
+    box-sizing: content-box;
+}
+
+.jssort04 .pdn .w, .jssort04 .pav .w {
+    border-style: dashed;
+}
+
+.jssort04 .c {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 62px;
+    height: 32px;
+    background-color: #000;
+    filter: alpha(opacity=45);
+    opacity: .45;
+    transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -webkit-transition: opacity .6s;
+    -o-transition: opacity .6s;
+}
+
+.jssort04 .p:hover .c, .jssort04 .pav .c {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.jssort04 .p:hover .c {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+* html .jssort04 .w {
+    width /**/: 62px;
+    height /**/: 32px;
+}
+
+
+#ad1 {
+    border: 1px solid;
+    border-color: #84a8fb;
+    height: 400px;
+    /*font-size: 12px;*/
+}
+
+    #ad1 img {
+        width: 90px;
+        height: 90px;
+        margin-top: -40px;
+        margin-bottom: 6px;
+        margin-left: 100px;
+    }
+
+#ad2 {
+    border: 1px solid;
+    border-color: #84a8fb;
+    height: 400px;
+}
+
+    #ad2 img {
+        width: 90px;
+        height: 90px;
+        margin-top: -40px;
+        margin-bottom: 10px;
+        margin-left: 100px;
+    }
+
+#ad3 {
+    border: 1px solid;
+    border-color: #84a8fb;
+    height: 400px;
+}
+
+    #ad3 img {
+        width: 90px;
+        height: 90px;
+        margin-top: -40px;
+        margin-bottom: 10px;
+        margin-left: 100px;
+    }
+
+.NwJumbContSlide {
+    margin-top: 90px;
+    background-color: #eeeeee;
+}
+
+.NwJumbCont {
+    margin-top: 50px;
+    background-color: #eeeeee;
 }

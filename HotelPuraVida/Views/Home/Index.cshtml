@@ -1,29 +1,288 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jssor.slider.mini.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead"></p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        var jssor_1_options = {
+            $AutoPlay: true,
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $ChanceToShow: 1
+            },
+            $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 15,
+                $SpacingX: 3,
+                $SpacingY: 3,
+                $ChanceToShow: 1,
+                $Align: 455
+            }
+        };
+
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizing
+        function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            if (refSize) {
+                refSize = Math.min(refSize, 980);
+                jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+        ScaleSlider();
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+    });
+</script>
+
+<div class="NwJumbContSlide">
+
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:420px;overflow:hidden;visibility:hidden;background:url('../../Content/img/03.jpg') 50% 50% no-repeat;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('../../Content/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 420px; overflow: hidden;">
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Puntarenas
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de la Perla del Pacífico
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡25 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/puntarenas-psicologos-costa-rica.jpg" />
+                <img data-u="thumb" src="~/Content/img/puntarenas-psicologos-costa-rica.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en San José
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de la belleza capitalina
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡38 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/sj1.jpg" />
+                <img data-u="thumb" src="~/Content/img/sj1.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Cartago
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de
+                        <br />la Vieja Metrópoli
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡19 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/cartago1.jpg" />
+                <img data-u="thumb" src="~/Content/img/cartago1.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Limón
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de la Tromba del Caribe
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡23 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/puerto-limon-costa-rica.jpg" />
+                <img data-u="thumb" src="~/Content/img/puerto-limon-costa-rica.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Heredia
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar Ciudad de <br />las Flores
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡25 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/heredia.jpg" />
+                <img data-u="thumb" src="~/Content/img/heredia.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Guanacaste
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de
+                        <br /> la Pampa Guanacasteca
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡34 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/guana.jpg" />
+                <img data-u="thumb" src="~/Content/img/guana.jpg" />
+            </div>
+            <div data-p="175.00" style="display: none;">
+                <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 350px; font-family: Arial, Verdana; font-size: 12px; text-align: left;">
+                    <br />
+                    <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 40px; color: #FFFFFF;">
+                        <img height="30" color="white" src="~/Content/img/timbreblanco.png" />
+                        Hoteles
+                        <br />en Alajuela
+
+                    </span><br /><br /><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 2.5em; color: #FFFFFF;">
+                        Ven a disfrutar de
+                        <br /> la Ciudad de los Mangos
+
+                    </span><br />
+                    <span style="display: block; line-height: 1.1em; font-size: 1.5em; color: #FFFFFF;">
+                        ₡22 000 por noche
+
+                    </span><br /><br />
+                    <a href="/Reserve">
+                        <img border="0" alt="auction slider" height="50" src="http://www.chiquiemprendedores.es/wp-content/uploads/2015/12/boton-reservar.png" />
+                    </a>
+                </div>
+                <img style="position: absolute; top: 23px; left: 420px; width: 540px; height: 360px;" src="~/Content/img/liga.jpg" />
+                <img data-u="thumb" src="~/Content/img/liga.jpg" />
+            </div>
+
+        </div>
+        <!-- Thumbnail Navigator -->
+        <div data-u="thumbnavigator" class="jssort04" style="position:absolute;left:0px;bottom:0px;width:980px;height:60px;" data-autocenter="1">
+            <!-- Thumbnail Item Skin Begin -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div class="w">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora01l" style="top:0px;left:8px;width:45px;height:45px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora01r" style="top:0px;right:8px;width:45px;height:45px;" data-autocenter="2"></span>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2></h2>
-        <p>
-           
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2></h2>
-        <p></p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2></h2>
-        <p></p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="NwJumbCont">
+
+    <div class="row" style="margin-top: 50px; margin-left:0px">
+        <div class="col-md-4" id="ad1">
+            <img src="~/Content/img/calendar.png" />
+            <h2>Let's play your music</h2>
+            <p>
+                Do you like music? Let's play your favorite songs right now, right here!
+            </p>
+            <br />
+            <p>
+                <a class="btn btn-default" href="#" style="background-color: #84a8fb; color: white; font-weight: bold">Play Music &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4" id="ad2">
+            <img src="~/Content/img/best-price-es.svg" />
+            <h2>Mejores Precios</h2>
+            <p>
+                Comparamos y te mostramos los hoteles con mejor precio en el mercado
+            </p>
+            <br />
+            <p>
+                <a class="btn btn-default" href="#" style="background-color: #84a8fb; color: white; font-weight: bold;">Search now &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4" id="ad3">
+            <img src="~/Content/img/user1.png" />
+            <h2>Regístrate o ingresa</h2>
+            <p>
+                ¡Regístrate o ingresa con tu cuenta para empezar a reservar!
+            </p>
+            <br />
+            <div>
+                <p>
+                    <a class="btn btn-default col-md-4" href="~/Account/Register" style="background-color: grey; color: white; font-weight: bold;">Registrarse &raquo;</a>
+                    <a class="btn btn-default col-md-4" href="~/Account/Login" style="background-color: #84a8fb; color: white; font-weight: bold; margin-left: 9px;">Ingresar &raquo;</a>
+                </p>
+            </div>
+        </div>
     </div>
 </div>

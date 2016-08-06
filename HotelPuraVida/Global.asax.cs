@@ -38,20 +38,20 @@ namespace HotelPuraVida
             var user = userManarge.FindByName("adm.puravida@gmail.com");
             if(!userManarge.IsInRole(user.Id,"View"))
             {
-                userManarge.AddToRole(user.Id, "View");
+                //userManarge.AddToRole(user.Id, "View");
             }
-            if (!userManarge.IsInRole(user.Id, "Create"))
-            {
-                userManarge.AddToRole(user.Id, "Create");
-            }
-            if (!userManarge.IsInRole(user.Id, "Edit"))
-            {
-                userManarge.AddToRole(user.Id, "Edit");
-            }
-            if (!userManarge.IsInRole(user.Id, "Delete"))
-            {
-                userManarge.AddToRole(user.Id, "Delete");
-            }
+            //if (!userManarge.IsInRole(user.Id, "Create"))
+            //{
+            //    userManarge.AddToRole(user.Id, "Create");
+            //}
+            //if (!userManarge.IsInRole(user.Id, "Edit"))
+            //{
+            //    userManarge.AddToRole(user.Id, "Edit");
+            //}
+            //if (!userManarge.IsInRole(user.Id, "Delete"))
+            //{
+            //    userManarge.AddToRole(user.Id, "Delete");
+            //}
         }
 
         private void CreateAdministrador(ApplicationDbContext db)

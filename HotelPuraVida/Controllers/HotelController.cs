@@ -120,7 +120,7 @@ namespace HotelPuraVida.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "No existe!!!";
+                ViewBag.Error = ex.Message.ToString();
                 throw;
             }
            
