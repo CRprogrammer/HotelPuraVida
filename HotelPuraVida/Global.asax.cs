@@ -68,6 +68,7 @@ namespace HotelPuraVida
             var userManarge = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var user = userManarge.FindByName("adm.puravida@gmail.com");
+
             if (!userManarge.IsInRole(user.Id, "View"))
             {
                 userManarge.AddToRole(user.Id, "View");
