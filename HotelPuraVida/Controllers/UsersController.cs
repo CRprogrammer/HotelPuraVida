@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace HotelPuraVida.Controllers
 {
-
+     [Authorize(Roles = "Adm")]
     public class UsersController : Controller
     {
        private ApplicationDbContext db = new ApplicationDbContext();
