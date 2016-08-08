@@ -10,12 +10,10 @@ using HotelPuraVida.Models;
 
 namespace HotelPuraVida.Controllers
 {
-    
     public class RoomController : Controller
     {
         private HotelPuraVidaContext db = new HotelPuraVidaContext();
 
-        [Authorize(Roles = "View")]
         // GET: Room
         public ActionResult Index()
         {
@@ -23,7 +21,6 @@ namespace HotelPuraVida.Controllers
             return View(roomModels.ToList());
         }
 
-        [Authorize(Roles = "View")]
         // GET: Room/Details/5
         public ActionResult Details(int? id)
         {
@@ -31,15 +28,14 @@ namespace HotelPuraVida.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RoomModel roomModel = db.RoomModels.Find(id);
-            if (roomModel == null)
+            RoomModels roomModels = db.RoomModels.Find(id);
+            if (roomModels == null)
             {
                 return HttpNotFound();
             }
-            return View(roomModel);
+            return View(roomModels);
         }
 
-        [Authorize(Roles = "Create")]
         // GET: Room/Create
         public ActionResult Create()
         {
@@ -47,23 +43,24 @@ namespace HotelPuraVida.Controllers
             return View();
         }
 
-        // POST: Room/Create        
+        // POST: Room/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight")] RoomModel roomModel)
+        public ActionResult Create([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight,AvailableStatus")] RoomModels roomModels)
         {
             if (ModelState.IsValid)
             {
-                db.RoomModels.Add(roomModel);
+                db.RoomModels.Add(roomModels);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
-            return View(roomModel);
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModels.HotelID);
+            return View(roomModels);
         }
 
-        [Authorize(Roles = "Edit")]
         // GET: Room/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -71,13 +68,13 @@ namespace HotelPuraVida.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RoomModel roomModel = db.RoomModels.Find(id);
-            if (roomModel == null)
+            RoomModels roomModels = db.RoomModels.Find(id);
+            if (roomModels == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
-            return View(roomModel);
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModels.HotelID);
+            return View(roomModels);
         }
 
         // POST: Room/Edit/5
@@ -85,19 +82,18 @@ namespace HotelPuraVida.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight")] RoomModel roomModel)
+        public ActionResult Edit([Bind(Include = "RoomID,RoomNumber,RoomType,AvailableDays,MaxPeople,HotelID,CostPerNight,AvailableStatus")] RoomModels roomModels)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(roomModel).State = EntityState.Modified;
+                db.Entry(roomModels).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModel.HotelID);
-            return View(roomModel);
+            ViewBag.HotelID = new SelectList(db.HotelModels, "HotelID", "Name", roomModels.HotelID);
+            return View(roomModels);
         }
 
-        [Authorize(Roles = "Delete")]
         // GET: Room/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -105,12 +101,12 @@ namespace HotelPuraVida.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RoomModel roomModel = db.RoomModels.Find(id);
-            if (roomModel == null)
+            RoomModels roomModels = db.RoomModels.Find(id);
+            if (roomModels == null)
             {
                 return HttpNotFound();
             }
-            return View(roomModel);
+            return View(roomModels);
         }
 
         // POST: Room/Delete/5
@@ -118,8 +114,8 @@ namespace HotelPuraVida.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RoomModel roomModel = db.RoomModels.Find(id);
-            db.RoomModels.Remove(roomModel);
+            RoomModels roomModels = db.RoomModels.Find(id);
+            db.RoomModels.Remove(roomModels);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

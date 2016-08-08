@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace HotelPuraVida.Models
 {
-    public class RoomModel
+    public class RoomModels
     {
         [Key]
         public int RoomID { get; set; }
@@ -39,8 +40,14 @@ namespace HotelPuraVida.Models
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         public decimal CostPerNight { get; set; }
 
+
+        [Display(Name = "Disponible?")]
+        [NotMapped]
+        public bool AvailableStatus { get; set; }
+
         public virtual HotelModels HotelModels { get; set; }
 
         public ICollection<ReservationModel> ReservationModel { get; set; }
+
     }
 }

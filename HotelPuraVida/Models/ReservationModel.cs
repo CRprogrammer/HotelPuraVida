@@ -27,10 +27,8 @@ namespace HotelPuraVida.Models
 
         public int RoomID { get; set; }
 
-        public int LoginID { get; set; }
-
         public virtual HotelModels HotelModels { get; set; }
 
-        public virtual RoomModel RoomModel { get; set; }
+        public virtual RoomModels RoomModel { get; set; }
     }
 }

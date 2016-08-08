@@ -1,13 +1,13 @@
-﻿@model IEnumerable<HotelPuraVida.Models.RoomModel>
+﻿@model IEnumerable<HotelPuraVida.Models.RoomModels>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2 style="margin-top:80px">Cuartos</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,35 +29,51 @@
         <th>
             @Html.DisplayNameFor(model => model.CostPerNight)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableStatus)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HotelModels.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoomNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoomType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvailableDays)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxPeople)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostPerNight)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RoomID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Details", "Details", new { id=item.RoomID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Delete", "Delete", new { id=item.RoomID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelModels.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPeople)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostPerNight)
+            </td> 
+            @if(item.AvailableDays > DateTime.Now)
+            {
+                item.AvailableStatus = false;
+            }
+            else
+            {
+                item.AvailableStatus = true;
+            }
+            <td>         
+                    @Html.DisplayFor(modelItem => item.AvailableStatus)                       
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RoomID }, new {@class="btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.RoomID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.RoomID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>

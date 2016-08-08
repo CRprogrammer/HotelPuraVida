@@ -1,13 +1,13 @@
-﻿@model HotelPuraVida.Models.RoomModel
+﻿@model HotelPuraVida.Models.RoomModels
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2 style="margin-top:80px">Cuartos</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Detalle del cuarto #@Model.RoomNumber</h4>
+    <h4>RoomModels</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -56,11 +56,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.CostPerNight)
-        </dd>
+        </dd>        
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
 </p>

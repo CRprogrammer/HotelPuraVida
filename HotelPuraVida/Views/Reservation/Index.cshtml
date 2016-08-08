@@ -26,9 +26,6 @@
         <th>
             @Html.DisplayNameFor(model => model.RoomID)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoginID)
-        </th>
         <th></th>
     </tr>
 
@@ -48,10 +45,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RoomID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoginID)
-        </td>
+        </td>       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ReservationID }, new { @class = "btn btn-primary" })
             @Html.ActionLink("Details", "Details", new { id=item.ReservationID }, new { @class = "btn btn-info" })
