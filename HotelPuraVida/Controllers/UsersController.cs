@@ -131,11 +131,11 @@ namespace HotelPuraVida.Controllers
 
             if (string.IsNullOrEmpty(roleID))
             {
-                ViewBag.Error = "You must select a role";
                 var list = roleManager.Roles.ToList();
                 list.Add(new IdentityRole { Id = "", Name = "[Seleccione]" });
                 list = list.OrderBy(r => r.Name).ToList();
                 ViewBag.RoleID = new SelectList(list, "Id", "Name");
+                ViewBag.Error = "You must select a role!";
                 return View(userView);
             }
 

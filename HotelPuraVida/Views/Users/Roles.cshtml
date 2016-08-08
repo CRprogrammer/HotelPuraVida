@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Roles";
 }
-
-<h1>Roles de Usuarios: @Model.Name</h1>
-
+<br /><br /><br />
+<h2>Roles</h2>
+<h4>Editar roles para @Model.Name</h4>
 <p>
     @Html.ActionLink("Add Role", "AddRole", new { userID = Model.UserID }, new{ @class= "btn btn-primary" })
     @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-info" })
@@ -24,7 +24,7 @@
             
             <td>
               
-                @Html.ActionLink("Delete", "Delete", new {user=Model, roleID = Model.Roles[i].RoleID })
+                @Html.ActionLink("Delete", "Delete", new {user=Model, roleID = Model.Roles[i].RoleID }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

@@ -23,9 +23,6 @@
         };
 
         var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-        //responsive code begin
-        //you can remove responsive code if you don't want the slider scales while window resizing
         function ScaleSlider() {
             var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
             if (refSize) {
@@ -40,14 +37,12 @@
         $(window).bind("load", ScaleSlider);
         $(window).bind("resize", ScaleSlider);
         $(window).bind("orientationchange", ScaleSlider);
-        //responsive code end
     });
 </script>
 
 <div class="NwJumbContSlide">
 
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:420px;overflow:hidden;visibility:hidden;background:url('../../Content/img/03.jpg') 50% 50% no-repeat;">
-        <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('../../Content/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
@@ -226,9 +221,7 @@
             </div>
 
         </div>
-        <!-- Thumbnail Navigator -->
         <div data-u="thumbnavigator" class="jssort04" style="position:absolute;left:0px;bottom:0px;width:980px;height:60px;" data-autocenter="1">
-            <!-- Thumbnail Item Skin Begin -->
             <div data-u="slides" style="cursor: default;">
                 <div data-u="prototype" class="p">
                     <div class="w">
@@ -237,9 +230,7 @@
                     <div class="c"></div>
                 </div>
             </div>
-            <!-- Thumbnail Item Skin End -->
         </div>
-        <!-- Arrow Navigator -->
         <span data-u="arrowleft" class="jssora01l" style="top:0px;left:8px;width:45px;height:45px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora01r" style="top:0px;right:8px;width:45px;height:45px;" data-autocenter="2"></span>
     </div>

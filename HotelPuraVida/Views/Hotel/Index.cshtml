@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-top:80px">Hoteles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-warning" })
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Rating)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HotelID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HotelID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HotelID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.HotelID }, new { @class = "btn btn-primary"})
+            @Html.ActionLink("Details", "Details", new { id=item.HotelID }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.HotelID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="margin-top:80px">Reservaciones</h2>
 
 <div>
-    <h4>ReservationModel</h4>
+    <h4>Detalles de reservación #@Model.ReservationID</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -61,6 +61,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-info" })
 </p>

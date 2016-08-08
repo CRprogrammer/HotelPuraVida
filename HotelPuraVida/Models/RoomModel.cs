@@ -21,6 +21,8 @@ namespace HotelPuraVida.Models
 
         [Display(Name = "Fecha disponible")]
         [Required(ErrorMessage = "You must enter a valid {0}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime AvailableDays { get; set; }
 
         [Display(Name = "Personas por cuarto")]
@@ -33,8 +35,12 @@ namespace HotelPuraVida.Models
 
         [Display(Name = "Costo por noche")]
         [Required(ErrorMessage = "You must enter a valid {0}")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         public decimal CostPerNight { get; set; }
 
         public virtual HotelModels HotelModels { get; set; }
+
+        public ICollection<ReservationModel> ReservationModel { get; set; }
     }
 }

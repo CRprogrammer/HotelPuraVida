@@ -21,7 +21,7 @@ namespace HotelPuraVida.Controllers
         {
             return View(db.HotelModels.ToList());
         }
-         [Authorize(Roles = "Detail")]
+         [Authorize(Roles = "View")]
         // GET: Hotel/Details/5
         public ActionResult Details(int? id)
         {

@@ -10,11 +10,12 @@ using HotelPuraVida.Models;
 
 namespace HotelPuraVida.Controllers
 {
-    //[Authorize]
+    
     public class RoomController : Controller
     {
         private HotelPuraVidaContext db = new HotelPuraVidaContext();
 
+        [Authorize(Roles = "View")]
         // GET: Room
         public ActionResult Index()
         {
@@ -22,6 +23,7 @@ namespace HotelPuraVida.Controllers
             return View(roomModels.ToList());
         }
 
+        [Authorize(Roles = "View")]
         // GET: Room/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +39,7 @@ namespace HotelPuraVida.Controllers
             return View(roomModel);
         }
 
+        [Authorize(Roles = "Create")]
         // GET: Room/Create
         public ActionResult Create()
         {
@@ -60,6 +63,7 @@ namespace HotelPuraVida.Controllers
             return View(roomModel);
         }
 
+        [Authorize(Roles = "Edit")]
         // GET: Room/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -93,6 +97,7 @@ namespace HotelPuraVida.Controllers
             return View(roomModel);
         }
 
+        [Authorize(Roles = "Delete")]
         // GET: Room/Delete/5
         public ActionResult Delete(int? id)
         {

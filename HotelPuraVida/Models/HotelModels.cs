@@ -26,5 +26,7 @@ namespace HotelPuraVida.Models
         public int Rating { get; set; }
 
         public virtual ICollection<RoomModel> RoomModel { get; set; }
+
+        public virtual ICollection<ReservationModel> ReservationModel { get; set; }
     }
 }
