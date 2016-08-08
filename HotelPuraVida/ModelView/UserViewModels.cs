@@ -1,4 +1,5 @@
-﻿using HotelPuraVida.ModelView;
+﻿using HotelPuraVida.Models;
+using HotelPuraVida.ModelView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,5 +16,8 @@ namespace HotelPuraVida.ModelView
         public string EMail { get; set; }
         public RoleViewModels Role { get; set; }
         public List<RoleViewModels> Roles { get; set; }
+
+        //public virtual ICollection<ReservationModel> ReservationModel { get; set; }
+        public virtual ICollection<OrderReservationModels> ReservationModel { get; set; }
     }
 }

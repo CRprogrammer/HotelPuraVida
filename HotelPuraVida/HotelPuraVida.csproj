@@ -181,6 +181,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\OrderReservationModels.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="ModelView\AccountViewModels.cs" />
     <Compile Include="Models\HotelModels.cs" />
     <Compile Include="Models\HotelPuraVidaContext.cs" />

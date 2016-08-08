@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPuraVida.ModelView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,8 +28,12 @@ namespace HotelPuraVida.Models
 
         public int RoomID { get; set; }
 
+        public int UserID { get; set; }
+
         public virtual HotelModels HotelModels { get; set; }
 
         public virtual RoomModels RoomModel { get; set; }
+
+        //public virtual UserViewModels UserViewModels { get; set; }
     }
 }
