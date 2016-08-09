@@ -18,6 +18,6 @@ namespace HotelPuraVida.ModelView
         public List<RoleViewModels> Roles { get; set; }
 
         //public virtual ICollection<ReservationModel> ReservationModel { get; set; }
-        public virtual ICollection<OrderReservationModels> ReservationModel { get; set; }
+        public virtual ICollection<OrderReservationModels> Reservation { get; set; }
     }
 }

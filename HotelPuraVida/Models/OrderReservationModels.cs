@@ -10,7 +10,7 @@ namespace HotelPuraVida.Models
     public class OrderReservationModels
     {
         [Key]
-        public string OrdenID { get; set; }
+        public int OrdenID { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
@@ -19,7 +19,7 @@ namespace HotelPuraVida.Models
 
 
         public virtual UserViewModels UserViewModels { get; set; }
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public ICollection<OrderDetails> OrderDetails{ get; set; }
         
 
     }

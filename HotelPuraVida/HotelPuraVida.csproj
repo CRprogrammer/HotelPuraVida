@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderReservationsController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Models\OrderReservationModels.cs" />
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\OrderDetails.cs" />
+    <Compile Include="Models\RoomOrderModels.cs" />
     <Compile Include="ModelView\AccountViewModels.cs" />
     <Compile Include="Models\HotelModels.cs" />
     <Compile Include="Models\HotelPuraVidaContext.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\RoomModels.cs" />
+    <Compile Include="ModelView\OrderReservationViewModels.cs" />
     <Compile Include="ModelView\RoleViewModels.cs" />
     <Compile Include="ModelView\UserViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -326,6 +329,7 @@
     <Content Include="Views\Room\Details.cshtml" />
     <Content Include="Views\Room\Edit.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\OrderReservations\NewReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
