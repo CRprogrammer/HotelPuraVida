@@ -27,18 +27,8 @@
                 @Html.ValidationMessageFor(model => model.UserViewModels.UserID, "", new { @class = "text-danger" })
             </div>
         </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CostPerNight, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CostPerNight, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CostPerNight, "", new { @class = "text-danger" })
+        @Html.ActionLink("Add Reservation", "AddReservation", new { }, new { @class = "btn btn-primary"})
+         <input type="submit" value="Save Reservation" id="NewReservation" class="btn btn-success" />
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
-            </div>
-        </div>
-    </div>
+        
+}

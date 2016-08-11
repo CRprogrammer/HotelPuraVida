@@ -20,12 +20,12 @@ namespace HotelPuraVida.Controllers
             OrderReservationView.UserViewModels = new UserViewModels();
             OrderReservationView.Room = new List<RoomOrderModels>();
 
-
+            Session["OrderReservationView"] = OrderReservationView;
             //Para generar un DropDownList
   //SEGURO QUE NO SIRVE POR QUE NO JALA LOS DATOS DEL USUARIO
             //var list = db.RoomModels.ToList();
-            //list.Add(new RoomOrderModels { RoomID = 0, RoomType = "[Seleccione]" });
             //list.OrderBy(r => r.RoomType).ToList();
+            //list.Add(new RoomOrderModels { RoomID = 0, RoomType = "[Seleccione]" });
             //ViewBag.RoomID = new SelectList(list, "RoomID", "RoomType");
 
 
@@ -37,6 +37,35 @@ namespace HotelPuraVida.Controllers
 
 
             return View(OrderReservationView);
+        }
+
+        public ActionResult AddReservation()
+        {
+            var list = db.RoomModels.ToList();
+            list.OrderBy(r => r.RoomType).ToList();
+            list.Add(new RoomOrderModels { RoomID = 0, RoomType = "[Seleccione]" });
+            ViewBag.RoomID = new SelectList(list, "RoomID", "RoomType");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddReservation(RoomOrderModels RoomOrder)
+        {
+            var OrderReservationView = Session["OrderReservationView"] as OrderReservationViewModels;
+
+            var RoomID =int.Parse( Request["RoomID"]);
+            if(RoomID==0){
+                var list = db.RoomModels.ToList();
+                list.OrderBy(r => r.RoomType).ToList();
+                list.Add(new RoomOrderModels { RoomID = 0, RoomType = "[Seleccione]" });
+                ViewBag.RoomID = new SelectList(list, "RoomID", "RoomType");
+
+                ViewBag.Error = "Debe Seleccionar un tipo de Habitación.";
+                //aqui quede
+                return View(RoomOrder);
+            }
+
+           
+            return View(RoomOrder);
         }
         protected override void Dispose(bool disposing)
         {
