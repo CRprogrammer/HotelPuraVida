@@ -1,0 +1,89 @@
+   public class OrderDetails
+    {
+        [Key]
+        public int OrderDetailsID { get; set; }
+        public int OrdenID { get; set; }
+        public int RoomID { get; set; }
+
+        [Display(Name = "Personas")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        public float People { get; set; }
+
+        [Display(Name = "Tipo de cuarto")]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        public string RoomType { get; set; }
+
+        [Display(Name = "Costo por noche")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        public decimal CostPerNight { get; set; }
+
+
+        public virtual OrderReservationModels OrderReservationModels { get; set; }
+        public virtual RoomModels  RoomModels { get; set; }
+      
+    }
+
+ public class OrderReservationModels
+    {
+        [Key]
+        public int OrdenID { get; set; }
+        [Display(Name = "Cliente")]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters", MinimumLength = 6)]
+        public string Name { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
+        public string UserID { get; set; }
+        public OrderStatus OrderStatus { get; set; }
+
+        public virtual UserViewModels UserViewModels { get; set; }
+        public ICollection<OrderDetails> OrderDetails{ get; set; }
+        
+
+    }
+
+  public enum OrderStatus
+    {
+        vacant,
+        confirmation,
+        Reservation,
+        canceled
+    }
+
+
+ public class RoomOrderModels:RoomModels
+    {
+        [Display(Name = "Personas")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        public float People { get; set; }
+
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal Value { get { return CostPerNight * (decimal)People; } }
+
+    
+    }
+
+
+ public class OrderReservationViewModels
+    {
+        //Por ahora 
+        [Display(Name = "Cliente")]
+        [Required(ErrorMessage = "You must enter a valid {0}")]
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters", MinimumLength = 6)]
+        public string Name { get; set; }
+        public RoomOrderModels Room { get; set; }
+        public UserViewModels UserViewModels { get; set; }
+        public List<RoomModels> room { get; set; }
+        public List<RoomOrderModels> RoomOrder { get; set; }
+
+    }
+
+

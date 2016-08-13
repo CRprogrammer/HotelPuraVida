@@ -29,5 +29,10 @@ namespace HotelPuraVida.Models
 
         public System.Data.Entity.DbSet<HotelPuraVida.Models.RoomModels> RoomModels { get; set; }
 
+        public System.Data.Entity.DbSet<HotelPuraVida.Models.OrderReservationModels> OrderReservationModels { get; set; }
+
+        public System.Data.Entity.DbSet<HotelPuraVida.Models.OrderDetails> OrderDetails { get; set; }
+
+
     }
 }

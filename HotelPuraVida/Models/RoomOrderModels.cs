@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPuraVida.ModelView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace HotelPuraVida.Models
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Value { get { return CostPerNight * (decimal)People; } }
+
+    
     }
 }
