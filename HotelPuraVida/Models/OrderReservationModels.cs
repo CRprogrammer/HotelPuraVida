@@ -23,8 +23,8 @@ namespace HotelPuraVida.Models
 
 
         public virtual UserViewModels UserViewModels { get; set; }
-        public ICollection<OrderDetails> OrderDetails{ get; set; }
-        
+        public ICollection<OrderDetails> OrderDetails { get; set; }
+
 
     }
 }

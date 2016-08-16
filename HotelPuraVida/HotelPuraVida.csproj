@@ -329,8 +329,8 @@
     <Content Include="Views\Room\Details.cshtml" />
     <Content Include="Views\Room\Edit.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
-    <Content Include="Views\OrderReservations\NewReservation.cshtml" />
     <Content Include="Views\OrderReservations\AddReservation.cshtml" />
+    <Content Include="Views\OrderReservations\NewReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

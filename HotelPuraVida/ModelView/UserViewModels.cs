@@ -10,6 +10,7 @@ namespace HotelPuraVida.ModelView
 {
     public class UserViewModels
     {
+        [Key]
         public string UserID { get; set; }
         public string Name { get; set;}
         [DataType(DataType.EmailAddress)]
@@ -17,7 +18,7 @@ namespace HotelPuraVida.ModelView
         public RoleViewModels Role { get; set; }
         public List<RoleViewModels> Roles { get; set; }
 
-        //public virtual ICollection<ReservationModel> ReservationModel { get; set; }
+        public virtual ICollection<ReservationModel> ReservationModel { get; set; }
         public virtual ICollection<OrderReservationModels> Reservation { get; set; }
     }
 }

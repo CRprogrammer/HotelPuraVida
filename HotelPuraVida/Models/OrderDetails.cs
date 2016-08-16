@@ -32,8 +32,8 @@ namespace HotelPuraVida.Models
 
 
         public virtual OrderReservationModels OrderReservationModels { get; set; }
-        public virtual RoomModels  RoomModels { get; set; }
-      
+        public virtual RoomModels RoomModels { get; set; }
+
     }
 
 }

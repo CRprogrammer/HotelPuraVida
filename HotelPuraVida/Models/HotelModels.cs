@@ -27,6 +27,6 @@ namespace HotelPuraVida.Models
 
         public virtual ICollection<RoomModels> RoomModel { get; set; }
 
-        //public virtual ICollection<ReservationModel> ReservationModel { get; set; }
+        public virtual ICollection<ReservationModel> ReservationModel { get; set; }
     }
 }

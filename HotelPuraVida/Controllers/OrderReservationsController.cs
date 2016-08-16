@@ -26,13 +26,11 @@ namespace HotelPuraVida.Controllers
             return View(OrderReservationView);
         }
         [HttpPost]
-        public ActionResult NewReservatio([Bind(Include = "Name")] OrderReservationViewModels OrderReservationView)
+        public ActionResult NewReservation([Bind(Include = "Name")] OrderReservationViewModels OrderReservationView)
         { ///Arreglar error del Nombre del Usuario al que sale la reservacion
           ///Video 20
             OrderReservationView = Session["OrderReservationView"] as OrderReservationViewModels;
-            var UserID = Request["UserID"];
-           
-
+            var UserID = Request["UserID"];          
 
             ////Esto es por si utiliza un textbox  validar que no este vacio
             //if (ModelState.IsValid)
